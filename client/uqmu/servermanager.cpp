@@ -118,6 +118,8 @@ bool ServerManager::installFile(int fileIndex)
     QFileInfo src(this->cachePath.absolutePath() + QString("/") + this->myServerFileList[fileIndex]->getRelativeCachePath());
     QString cmd = "";
 
+/* CHECK OPERATING SYSTEM */
+#if defined(Q_OS_LINUX)
     // find correct command
     if (src.suffix().toLower() == "rar") {
         cmd  = "unrar x -y \"" + src.absoluteFilePath() + "\" \"" + dst.absolutePath() + "\"";
@@ -132,6 +134,9 @@ bool ServerManager::installFile(int fileIndex)
         cmd  = "tar -xzf \"" + src.absoluteFilePath() + "\" -C \"" + dst.absolutePath() + "\"";
 
     }
+#elif defined(Q_OS_WIN)
+    cmd = "cmd /c \"\"C:\\Program Files\\7-Zip\\7z.exe\" x -y \"" + src.absoluteFilePath() + "\" -o\"" + dst.absolutePath() + "\"\"";
+#endif /* CHECK OPERATING SYSTEM */
 
     if (cmd.length() == 0) {
         this->myLog->log(__FILE__, __LINE__, __FUNCTION__, runLog::sevError, "No unpack command found for file " + src.fileName());

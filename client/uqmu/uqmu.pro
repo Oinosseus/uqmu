@@ -10,9 +10,7 @@ DEFINES += UQMU_VERSION=\\\"$$UQMU_VERSION\\\"
 
 QT       += core gui widgets network
 
-message("Qt version: $${QT_VERSION}")
-
-TARGET = aqmu
+TARGET = uqmu
 TEMPLATE = app
 
 
@@ -49,9 +47,14 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-# copy license file to build directory
-copydata.commands = $(COPY_DIR) $$PWD/../../LICENSE $$OUT_PWD
-first.depends = $(first) copydata
+# extra work
+linux {
+    extramake.commands = $(COPY_DIR) \"$$PWD/../../LICENSE\" \"$$OUT_PWD\"
+}
+win32 {
+    extramake.commands = ..\extramake.bat \"$$PWD\" \"$$OUT_PWD\"
+}
+first.depends = $(first) extramake
 export(first.depends)
-export(copydata.commands)
-QMAKE_EXTRA_TARGETS += first copydata
+export(extramake.commands)
+QMAKE_EXTRA_TARGETS += first extramake
