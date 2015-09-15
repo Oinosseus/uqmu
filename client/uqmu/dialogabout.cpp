@@ -4,7 +4,7 @@
 #include <QLabel>
 #include <QPushButton>
 
-DialogABout::DialogABout(QWidget *parent) : QWidget(parent)
+DialogABout::DialogABout(QWidget *parent) : QDialog(parent)
 {
     this->setWindowTitle("About");
 
@@ -16,6 +16,11 @@ DialogABout::DialogABout(QWidget *parent) : QWidget(parent)
 
     QLabel *lblVer = new QLabel(QString("Version: ") + QString(UQMU_VERSION));
     layout->addWidget(lblVer);
+
+    QLabel *lblLnk = new QLabel("<a href=\"https://github.com/Oinosseus/uqmu\">github.com/Oinosseus/uqmu</a>");
+    lblLnk->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    lblLnk->setOpenExternalLinks(true);
+    layout->addWidget(lblLnk);
 
     QPushButton *btn_ok = new QPushButton(QIcon::fromTheme("dialog-ok"), tr("ok"));
     connect(btn_ok, SIGNAL(clicked(bool)), this, SLOT(slotButtonOk(bool)));

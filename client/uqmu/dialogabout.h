@@ -1,9 +1,10 @@
 #ifndef DIALOGABOUT_H
 #define DIALOGABOUT_H
 
+#include <QDialog>
 #include <QWidget>
 
-class DialogABout : public QWidget
+class DialogABout : public QDialog
 {
     Q_OBJECT
 public:

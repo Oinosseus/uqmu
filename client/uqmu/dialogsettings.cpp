@@ -10,7 +10,7 @@
 #include <QIcon>
 #include "widgetpathselector.h"
 
-DialogSettings::DialogSettings(QWidget *parent) : QWidget(parent)
+DialogSettings::DialogSettings(QWidget *parent) : QDialog(parent)
 {
     this->setWindowTitle("Settings");
 

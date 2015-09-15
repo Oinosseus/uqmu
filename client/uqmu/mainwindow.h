@@ -15,6 +15,7 @@ private:
 
 private slots:
     void actionslotAbout(bool);
+    void actionslotLicense(bool);
     void actionslotSettings(bool);
     void actionslotOpen(bool);
 };

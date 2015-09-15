@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     widgettextedit.cpp \
     servermanager_file.cpp \
     dialoguserauth.cpp \
-    servermanager_uqmu_http.cpp
+    servermanager_uqmu_http.cpp \
+    dialoglicense.cpp
 
 HEADERS  += mainwindow.h \
     runlog.h \
@@ -43,6 +44,14 @@ HEADERS  += mainwindow.h \
     widgettextedit.h \
     servermanager_file.h \
     dialoguserauth.h \
-    servermanager_uqmu_http.h
+    servermanager_uqmu_http.h \
+    dialoglicense.h
 
 FORMS    += mainwindow.ui
+
+# copy license file to build directory
+copydata.commands = $(COPY_DIR) $$PWD/../../LICENSE $$OUT_PWD
+first.depends = $(first) copydata
+export(first.depends)
+export(copydata.commands)
+QMAKE_EXTRA_TARGETS += first copydata

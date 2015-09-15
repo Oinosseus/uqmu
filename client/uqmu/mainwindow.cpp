@@ -9,6 +9,7 @@
 #include <QMessageBox>
 
 #include "dialogabout.h"
+#include "dialoglicense.h"
 #include "dialogsettings.h"
 #include "widgettargetprocessor.h"
 
@@ -42,6 +43,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QAction *action_about = new QAction(tr("about"), this);
     connect(action_about, SIGNAL(triggered(bool)), this, SLOT(actionslotAbout(bool)));
     menu_help->addAction(action_about);
+
+    QAction *action_license = new QAction(tr("license"), this);
+    connect(action_license, SIGNAL(triggered(bool)), this, SLOT(actionslotLicense(bool)));
+    menu_help->addAction(action_license);
 }
 
 MainWindow::~MainWindow()
@@ -55,6 +60,14 @@ MainWindow::~MainWindow()
 void MainWindow::actionslotAbout(bool)
 {
     DialogABout *dialog = new DialogABout();
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->setAttribute(Qt::WA_ShowModal);
+    dialog->show();
+}
+
+void MainWindow::actionslotLicense(bool)
+{
+    DialogLicense *dialog = new DialogLicense();
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setAttribute(Qt::WA_ShowModal);
     dialog->show();

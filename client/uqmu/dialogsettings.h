@@ -1,10 +1,11 @@
 #ifndef DIALOGSETTINGS_H
 #define DIALOGSETTINGS_H
 
+#include <QDialog>
 #include <QWidget>
 #include <QGroupBox>
 
-class DialogSettings : public QWidget
+class DialogSettings : public QDialog
 {
     Q_OBJECT
 public:
