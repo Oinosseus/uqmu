@@ -49,7 +49,7 @@ FORMS    += mainwindow.ui
 
 # extra work
 linux {
-    extramake.commands = $(COPY_DIR) \"$$PWD/../../LICENSE\" \"$$OUT_PWD\"
+    extramake.commands = ../extramake.sh \"$$PWD\" \"$$OUT_PWD\"
 }
 win32 {
     extramake.commands = ..\extramake.bat \"$$PWD\" \"$$OUT_PWD\"
