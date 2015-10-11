@@ -2,11 +2,12 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "uqmu"
-#define MyAppVersion "0.1"
+#define MyAppVersion "0.1.1"
 #define MyAppPublisher "Thomas Weinhold"
 #define MyAppURL "https://github.com/Oinosseus/uqmu"
 #define MyAppExeName "uqmu.exe"
 #define MyAppBuildDir ".\build-uqmu-Desktop_Qt_5_4_1_MinGW_32bit-Release\release"
+#define QtLibDir "C:\Qt\5.4\mingw491_32\bin"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -50,11 +51,11 @@ Source: "{#MyAppBuildDir}\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppBuildDir}\Qt5Network.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppBuildDir}\Qt5Svg.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppBuildDir}\Qt5Widgets.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#QtLibDir}\libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#QtLibDir}\libwinpthread-1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#QtLibDir}\libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#QtLibDir}\libgcc_s_dw2-1.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "openssl\libeay32.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Qt\5.4\mingw491_32\bin\libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Qt\5.4\mingw491_32\bin\libwinpthread-1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Qt\5.4\mingw491_32\bin\libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Qt\5.4\mingw491_32\bin\libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
