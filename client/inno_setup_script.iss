@@ -2,12 +2,12 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "uqmu"
-#define MyAppVersion "0.1.1"
+#define MyAppVersion "0.1.2"
 #define MyAppPublisher "Thomas Weinhold"
 #define MyAppURL "https://github.com/Oinosseus/uqmu"
 #define MyAppExeName "uqmu.exe"
-#define MyAppBuildDir ".\build-uqmu-Desktop_Qt_5_4_1_MinGW_32bit-Release\release"
-#define QtLibDir "C:\Qt\5.4\mingw491_32\bin"
+#define MyAppBuildDir ".\build-uqmu-Desktop_Qt_5_5_1_MinGW_32bit-Release\release"
+#define QtLibDir "C:\Qt\5.5\mingw492_32\bin"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -43,9 +43,9 @@ Source: "{#MyAppBuildDir}\bearer\*"; DestDir: "{app}\bearer\"; Flags: ignorevers
 Source: "{#MyAppBuildDir}\iconengines\*"; DestDir: "{app}\iconengines\"; Flags: ignoreversion
 Source: "{#MyAppBuildDir}\imageformats\*"; DestDir: "{app}\imageformats\"; Flags: ignoreversion
 Source: "{#MyAppBuildDir}\platforms\*"; DestDir: "{app}\platforms\"; Flags: ignoreversion
-Source: "{#MyAppBuildDir}\icudt53.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyAppBuildDir}\icuin53.dll*"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyAppBuildDir}\icuuc53.dll*"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "{#MyAppBuildDir}\icudt53.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "{#MyAppBuildDir}\icuin53.dll*"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "{#MyAppBuildDir}\icuuc53.dll*"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppBuildDir}\Qt5Core.dll*"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppBuildDir}\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppBuildDir}\Qt5Network.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -56,6 +56,7 @@ Source: "{#QtLibDir}\libwinpthread-1.dll"; DestDir: "{app}"; Flags: ignoreversio
 Source: "{#QtLibDir}\libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#QtLibDir}\libgcc_s_dw2-1.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "openssl\libeay32.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "openssl\ssleay32.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
