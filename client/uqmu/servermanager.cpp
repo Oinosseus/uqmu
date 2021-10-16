@@ -120,20 +120,7 @@ bool ServerManager::installFile(int fileIndex)
 
 /* CHECK OPERATING SYSTEM */
 #if defined(Q_OS_LINUX)
-    // find correct command
-    if (src.suffix().toLower() == "rar") {
-        cmd  = "unrar x -y \"" + src.absoluteFilePath() + "\" \"" + dst.absolutePath() + "\"";
-
-    } else if (src.suffix().toLower() == "zip") {
-        cmd  = "unzip -o \"" + src.absoluteFilePath() + "\" -d \"" + dst.absolutePath() + "\"";
-
-    } else if (src.suffix().toLower() == "7z") {
-        cmd  = "7za x -y \"" + src.absoluteFilePath() + "\" -o\"" + dst.absolutePath() + "\"";
-
-    } else if (src.fileName().endsWith(".tar.gz", Qt::CaseInsensitive)) {
-        cmd  = "tar -xzf \"" + src.absoluteFilePath() + "\" -C \"" + dst.absolutePath() + "\"";
-
-    }
+    cmd  = "7z x -y \"" + src.absoluteFilePath() + "\" -o\"" + dst.absolutePath() + "\"";
 #elif defined(Q_OS_WIN)
     cmd = "cmd /c \"\"C:\\Program Files\\7-Zip\\7z.exe\" x -y \"" + src.absoluteFilePath() + "\" -o\"" + dst.absolutePath() + "\"\"";
 #endif /* CHECK OPERATING SYSTEM */
