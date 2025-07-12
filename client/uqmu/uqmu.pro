@@ -47,14 +47,14 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-# extra work
-linux {
-    extramake.commands = ../extramake.sh \"$$PWD\" \"$$OUT_PWD\"
-}
-win32 {
-    extramake.commands = ..\extramake.bat \"$$PWD\" \"$$OUT_PWD\"
-}
-first.depends = $(first) extramake
-export(first.depends)
-export(extramake.commands)
-QMAKE_EXTRA_TARGETS += first extramake
+## extra work
+#linux {
+#    extramake.commands = $$PWD/extramake.sh \"$$PWD\" \"$$OUT_PWD\"
+#}
+#win32 {
+#    extramake.commands = ..\extramake.bat \"$$PWD\" \"$$OUT_PWD\"
+#}
+#first.depends = $(first) extramake
+#export(first.depends)
+#export(extramake.commands)
+#QMAKE_EXTRA_TARGETS += first extramake

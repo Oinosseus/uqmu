@@ -106,7 +106,7 @@ void ServerManager_uqmu_http::slotNetRequestFetchInfo(QNetworkReply *rply)
 
         // calculate time deviation (server - local)
         unsigned int server_timestamp = json["TimeStamp"].toInt();
-        unsigned int local_timestamp  = QDateTime::currentDateTime().toTime_t();
+        unsigned int local_timestamp  = QDateTime::currentDateTime().toSecsSinceEpoch();
         srvTimeDeviation = server_timestamp - local_timestamp;
 
         // generate new network request for file list
@@ -142,7 +142,7 @@ void ServerManager_uqmu_http::slotNetRequestFileList(QNetworkReply *rply)
     QJsonObject json;
     for (int i=0; i < jsonarray.size(); i++) {
         json = jsonarray[i].toObject();
-        QDateTime server_time = QDateTime::fromTime_t(json["Time"].toInt());
+        QDateTime server_time = QDateTime::fromSecsSinceEpoch(json["Time"].toInt());
         QDateTime local_time  = server_time.addSecs(-1 * srvTimeDeviation);
         QUrl url = this->url;
         url.setScheme(this->srvScheme);
